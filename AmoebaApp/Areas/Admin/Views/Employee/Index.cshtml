@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@model List<GetEmployeeVM>
+<div class="card-body p-4">
+    <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+    <div class="table-responsive">
+        <a asp-action="Create" class="btn btn-outline-success m-1">Create</a>
+        <table class="table text-nowrap mb-0 align-middle">
+            <thead class="text-dark fs-4">
+                <tr>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Id</h6>
+                    </th>
+                    <td class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Name</h6>
+                    </td>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Description</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Position</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Image</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Twitter</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Facebook</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Instagram</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">LinkedIn</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Action</h6>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                   @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.Id</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.Name</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.Description</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.Position</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                           <img src="~/assets/img/@item.ImageUrl width:"50px";   alt="Alternate Text" />   
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.Twitter</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.Facebook</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.Instagram</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">@item.LinkedIn</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <a asp-action="Delete" asp-controller="Employee" asp-route-id="@item.Id"  class="btn btn-outline-danger m-1">Delete</a>
+                            <a asp-action="Update" asp-controller="Employee" asp-route-id="@item.Id" class="btn btn-outline-warning m-1">Update</a>
+                        </td>
+                    </tr>
+                    }
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
